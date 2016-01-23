@@ -47,38 +47,38 @@ public class PersonRepositoryTest {
     @Test
     public void validJsonPost() throws Exception {
         mockMvc.perform(post("/people/").
-                content("{\"firstName\": \"MargeCreated\", \"lastName\": \"SimpsonValidPost\"}")).
+                content("{\"firstName\": \"Marge\", \"lastName\": \"Simpson\"}")).
                 andExpect(status().isCreated());
     }
 
     @Test
     public void invalidJsonPost() throws Exception {
         mockMvc.perform(post("/people/").
-                content("{\"unknown\": \"unknown\", " +
-                        "\"firstName\": \"LisaCreated\", \"lastName\": \"SimpsonInvalidPost\"}")).
+                content("{\"unknownPost\": \"unknown\", " +
+                        "\"firstName\": \"Lisa\", \"lastName\": \"Simpson\"}")).
                 andExpect(status().isBadRequest());
     }
 
     @Test
     public void validJsonPut() throws Exception {
         mockMvc.perform(put("/people/1").
-                content("{\"firstName\": \"HomerUpdated\", \"lastName\": \"SimpsonValidPut\"}")).
+                content("{\"firstName\": \"Homer\", \"lastName\": \"Simpson\"}")).
                 andExpect(status().isNoContent());
     }
 
     @Test
     public void invalidJsonPut() throws Exception {
         mockMvc.perform(put("/people/2").
-                content("{\"unknown\": \"unknown\", " +
-                        "\"firstName\": \"BartUpdated\", \"lastName\": \"SimpsonInvalidPut\"}")).
+                content("{\"unknownPut\": \"unknown\", " +
+                        "\"firstName\": \"Bart\", \"lastName\": \"Simpson\"}")).
                 andExpect(status().isBadRequest());
     }
 
     @Test
     public void invalidJsonPutNoObjectWithId() throws Exception {
         mockMvc.perform(put("/people/10000").
-                content("{\"unknown\": \"unknown\", " +
-                        "\"firstName\": \"MaggieUpdated\", \"lastName\": \"SimpsonInvalidPutNoObjectWithId\"}")).
+                content("{\"unknownPutNoObjectWithId\": \"unknown\", " +
+                        "\"firstName\": \"Maggie\", \"lastName\": \"Simpson\"}")).
                 andExpect(status().isBadRequest());
     }
 
