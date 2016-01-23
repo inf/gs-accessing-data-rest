@@ -28,6 +28,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
+    testCompile("org.springframework:spring-test:4.2.4.RELEASE")
+    testCompile("junit:junit:4.12")
 }
 
 task wrapper(type: Wrapper) {
